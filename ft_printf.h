@@ -6,7 +6,7 @@
 /*   By: tmaarela <tmaarela@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/20 15:15:08 by tmaarela          #+#    #+#             */
-/*   Updated: 2019/12/20 17:54:34 by tmaarela         ###   ########.fr       */
+/*   Updated: 2019/12/20 18:19:52 by tmaarela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,7 @@ int					ft_printf(const char *restrict format, ...);
 t_flags				store_flags(char *str);
 t_flags				store_length_spec(t_flags flags, char *str, va_list ap);
 char				*store_data(va_list ap, t_flags flags);
-void				write_output(char *str, t_flags flags);
+char				*write_output(char *str, t_flags flags);
 
 char				*func_d(char *hold, int type, va_list ap);
 char				*func_o(char *hold, int type, va_list ap);

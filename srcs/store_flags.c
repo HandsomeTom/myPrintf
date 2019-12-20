@@ -6,9 +6,16 @@
 /*   By: tmaarela <tmaarela@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/20 15:26:56 by tmaarela          #+#    #+#             */
-/*   Updated: 2019/12/20 18:03:09 by tmaarela         ###   ########.fr       */
+/*   Updated: 2019/12/20 18:25:44 by tmaarela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+/*
+** Store the information of our flags into struct flags. Printf is supposed to
+** take following flags in this exact order:
+** %[flags][width][.precision][length]specifier
+** for simplicitys sake I'm refering to all these extra specifiers as flags.
+*/ 
 
 #include "../ft_printf.h"
 

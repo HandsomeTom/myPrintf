@@ -6,9 +6,16 @@
 /*   By: tmaarela <tmaarela@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/20 16:40:05 by tmaarela          #+#    #+#             */
-/*   Updated: 2019/12/20 18:03:48 by tmaarela         ###   ########.fr       */
+/*   Updated: 2019/12/20 18:23:31 by tmaarela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+/*
+** Now that the flags etc are stored and our string contains the right data,
+** it's time to take that string and apply whatever spacing, justification,
+** precision etc. is to be added. We return the final string to printf and
+** print it out.
+*/
 
 #include "../ft_printf.h"
 
@@ -40,7 +47,7 @@ static char				*store_pre_int(char *str, int len, int type, int hash)
 	return (ft_strjoin(ret, str));
 }
 
-void					write_output(char *str, t_flags flags)
+char					*write_output(char *str, t_flags flags)
 {
 	int		len;
 	int		c;
@@ -54,5 +61,5 @@ void					write_output(char *str, t_flags flags)
 	if (flags.width - flags.presize > 0)
 		str = store_width(str, flags.width - ft_strlen(str),
 		flags.justification, c);
-	ft_putstr(str);
+	return(str);
 }

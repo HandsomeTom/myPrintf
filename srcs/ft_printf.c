@@ -6,9 +6,18 @@
 /*   By: tmaarela <tmaarela@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/20 15:15:00 by tmaarela          #+#    #+#             */
-/*   Updated: 2019/12/20 17:24:09 by tmaarela         ###   ########.fr       */
+/*   Updated: 2019/12/20 18:30:07 by tmaarela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+/*
+** FT_PRINTF()
+** The goal of this project is to re-create libc's printf function. It needs
+** to take into account the specifiers d i u o x X f c s p and %%.
+** In addition the following sub-specifiers (later referred to as flags)
+** need to be taken into account: + - # 0 and space, along with width,
+** precision and length.
+*/
 
 #include "../ft_printf.h"
 
@@ -31,7 +40,9 @@ int					ft_printf(const char *restrict format, ...)
 			flags = store_length_spec(flags, (char *)&(*format), ap);
 			format += flags.skip;
 			hold = store_data(ap, flags);
-			write_output(hold, flags);
+			hold = write_output(hold, flags);
+			ft_putstr(hold);
+			i += ft_strlen(hold);
 			flags = (t_flags){0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
 		}
 		else
