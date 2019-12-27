@@ -6,7 +6,7 @@
 /*   By: tmaarela <tmaarela@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/20 15:15:00 by tmaarela          #+#    #+#             */
-/*   Updated: 2019/12/20 18:30:07 by tmaarela         ###   ########.fr       */
+/*   Updated: 2019/12/27 17:51:21 by tmaarela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,7 @@ int					ft_printf(const char *restrict format, ...)
 	char		*hold;
 
 	va_start(ap, format);
+	i = 0;
 	while (*format)
 	{
 		if (*format == '%')
@@ -43,7 +44,7 @@ int					ft_printf(const char *restrict format, ...)
 			hold = write_output(hold, flags);
 			ft_putstr(hold);
 			i += ft_strlen(hold);
-			flags = (t_flags){0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
+			flags = (t_flags){0, 0, 0, 0, 0, 0, -1, 0, 0, 0, 0, 0, 0};
 		}
 		else
 		{

@@ -6,75 +6,47 @@
 #    By: tmaarela <tmaarela@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/10/17 11:11:52 by taho              #+#    #+#              #
-#    Updated: 2019/12/20 18:34:17 by tmaarela         ###   ########.fr        #
+#    Updated: 2019/12/20 17:57:23 by tmaarela         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME =		libftprintf.a
-LIBFT_A =	libft.a
+NAME = ft_printf
+FLAG = -Wall -Wextra -Werror
+SRCS =	srcs/ft_printf.c			\
+		srcs/func_char.c			\
+		srcs/func_d.c				\
+		srcs/func_o.c				\
+		srcs/func_x.c				\
+		srcs/func_capitalx.c		\
+		srcs/func_f.c				\
+		srcs/func_u.c				\
+		srcs/store_data.c			\
+		srcs/store_flags.c			\
+		srcs/write_output.c			\
+		srcs/store_length_spec.c	\
+		testmain.c
+OBJE = $(subst .c,.o,$(SRCS))
 
-COMP =		gcc $(PRINTF_H) $(LIBFT_H) -c -o
+GREEN = \033[0;32m
+RED = \033[0;31m
+END = \033[0m
 
-PRINTF_H =	-I .
-LIBFT_H = 	-I libft/
+all: $(NAME)
 
-OBJ_DIR =	obj/
-SRC_DIR =	srcs/
-LIB_DIR =	libft/
-
-CFILE =		ft_printf.c				\
-				store_data.c		\
-			store_flags.c			\
-			write_output.c			\
-			store_length_spec.c		\
-			func_d.c				\
-			func_o.c				\
-			func_x.c				\
-			func_capitalX.c			\
-			func_char.c				\
-			func_f.c				\
-			func_u.c
-
-CFIND =		$(CFILE:%=$(SRC_DIR)%)
-
-OFILE =		$(CFILE:%.c=%.o)
-
-OBJ =		$(addprefix $(OBJ_DIR), $(OFILE))
-
-all: $(OBJ_DIR) $(NAME)
-
-$(OBJ_DIR):
-		@mkdir -p $(OBJ_DIR)
-		@echo Create: ft_printf Object directory
-
-$(NAME): $(OBJ)
-		@echo LIBFT START
-		@make -C $(LIB_DIR)
-		@echo Copying $(LIBFT_A) to root.
-		@cp $(LIB_DIR)$(LIBFT_A) .
-		@mv $(LIBFT_A) $(NAME)
-		@ar rc $(NAME) $(addprefix $(OBJ_DIR), $(OFILE))
-		@ranlib $(NAME)
-		@echo Merged: $(NAME) with $(LIBFT_A)
-		@echo FT_PRINTF COMPLETE
-
-$(OBJ): $(CFIND)
-		@$(MAKE) $(OFILE)
-
-$(OFILE):
-		@echo Create: $(@:obj/%=%)
-		@$(COMP) $(OBJ_DIR)$@ $(SRC_DIR)$(@:%.o=%.c)
+$(NAME):
+	make -C libft re
+	gcc -o $(NAME) $(SRCS) -L libft -l ft -g
+	@echo "$(NAME): $(GREEN)ft_printf was created$(END)"
 
 clean:
-		@/bin/rm -rf $(OBJ_DIR)
-		@make -C $(LIB_DIR) clean
-		@echo Cleaned ft_printf object files
+	rm -f $(OBJE)
+	@echo "$(NAME): $(RED)All object files were deleted.$(END)"
 
-fclean: clean
-		@/bin/rm -f $(NAME)
-		@make -C $(LIB_DIR) fclean
-		@echo Cleaned $(NAME)
+fclean:	clean
+	rm -f $(NAME)
+	@echo "$(NAME): $(RED)$(NAME) was deleted$(END)"
 
-re: fclean all
+re:	fclean all
 
-.PHONY: all clean flcean re
+.PHONY: all clean fclean re
+.PRECIOUS: author

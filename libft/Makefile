@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: tomtom <tomtom@student.42.fr>              +#+  +:+       +#+         #
+#    By: tmaarela <tmaarela@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/10/17 11:11:52 by taho              #+#    #+#              #
-#    Updated: 2019/12/06 13:48:42 by tomtom           ###   ########.fr        #
+#    Updated: 2019/12/27 17:39:15 by tmaarela         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -69,6 +69,7 @@ SRCS =	ft_atoi.c 			\
 		ft_putnbr_base.c	\
 		ft_numlength.c		\
 		ft_pointer_to_string.c	\
+		ft_numlength_base.c	\
 		ft_ftoa.c
 OBJE = $(subst .c,.o,$(SRCS))
 

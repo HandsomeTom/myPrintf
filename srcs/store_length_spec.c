@@ -6,7 +6,7 @@
 /*   By: tmaarela <tmaarela@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/20 16:07:54 by tmaarela          #+#    #+#             */
-/*   Updated: 2019/12/20 18:10:38 by tmaarela         ###   ########.fr       */
+/*   Updated: 2019/12/27 17:19:41 by tmaarela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,6 +59,20 @@ static long long	get_arg_value(va_list ap, t_flags flags)
 	return (ret);
 }
 
+t_flags		flags_conflict_fix(t_flags flags)
+{
+	if (flags.integer == 1 && flags.zero == 1 && flags.presize > 0)
+		flags.zero = 0;
+	if (flags.justification == 1 && flags.zero == 1)
+		flags.zero = 0;
+	if (flags.integer == 0 || (flags.integer == 1 && flags.sign == 1
+		&& flags.value < 0))
+		flags.sign = 0;
+	if (flags.integer == 1 && flags.value >= 0 && flags.sign == 1)
+		flags.space = 0;
+	return (flags);
+}
+
 t_flags				store_length_spec(t_flags flags, char *str, va_list ap)
 {
 	if (*str == 'l' || *str == 'h' || *str == 'L')
@@ -76,5 +90,6 @@ t_flags				store_length_spec(t_flags flags, char *str, va_list ap)
 	flags.integer = check_if_int(flags.spec);
 	if (flags.integer == 1)
 		flags.value = get_arg_value(ap, flags);
+	flags = flags_conflict_fix(flags);
 	return (flags);
 }

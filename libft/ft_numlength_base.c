@@ -1,25 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   func_char.c                                        :+:      :+:    :+:   */
+/*   ft_numlength_base.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tmaarela <tmaarela@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/12/19 18:29:18 by tmaarela          #+#    #+#             */
-/*   Updated: 2019/12/27 16:20:56 by tmaarela         ###   ########.fr       */
+/*   Created: 2019/12/27 17:37:56 by tmaarela          #+#    #+#             */
+/*   Updated: 2019/12/27 17:38:21 by tmaarela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../ft_printf.h"
-#include <stdio.h>
-
-char	*func_char(va_list ap, char *hold)
+unsigned long long	ft_numlength_base(long long num, int base)
 {
-	va_list apc;
+	int ret;
 
-	va_copy(apc, ap);
-	if (va_arg(apc, int) == 0)
-		return (ft_strjoin("", ""));
-	hold = ft_memset(hold, va_arg(ap++, int), 1);
-	return (hold);
+	ret = 1;
+	if (num < 0)
+		ret++;
+	while (num / base != 0)
+	{
+		num /= base;
+		ret++;
+	}
+	return (ret);
 }

@@ -6,7 +6,7 @@
 /*   By: tmaarela <tmaarela@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/29 14:46:02 by tmaarela          #+#    #+#             */
-/*   Updated: 2019/12/20 17:51:46 by tmaarela         ###   ########.fr       */
+/*   Updated: 2019/12/27 17:47:56 by tmaarela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,8 +24,23 @@ int		main(int argc, char **argv)
 	double	fn2 = -13746.1337;
 	int		num = 666;
 
-	// printf("%.4s\n", "42");
-	// ft_printf("%.4s\n", "42");
+	ft_printf("My hex: %#08.x\n", 19);
+	printf("Og hex: %#08.x\n", 19);
+
+	ft_printf("My hex: %08.5x\n", 19);
+	printf("Og hex: %08.5x\n", 19);
+
+	ft_printf("My hex: %#.5x\n", 19);
+	printf("Og hex: %#.5x\n", 19);
+
+	ft_printf("My hex: %#1x\n", 42);
+	printf("Og hex: %#1x\n", 42);
+
+	ft_printf("My octal: %#.o\n", 0);
+	printf("Og octal: %#.o\n", 0);
+
+	ft_printf("My %010.5d\n", 42);
+	printf("Nm %010.5d\n", 42);
 
 	// ft_printf("%c\n%c\n", 'T', 42);
 	// printf("%%\n");
@@ -46,17 +61,17 @@ int		main(int argc, char **argv)
 	// printf("%x\n", 4294967296);
 
 	// ft_printf("Hello%% World!\n");
-	ft_printf("Number: %d and another: %d\n and string: %s\n", 12345, 666, teststr);
-	printf("Number: %d and another: %d\n and string: %s\n", 12345, 666, teststr);
+	// ft_printf("Number: %d and another: %d\n and string: %s\n", 12345, 666, teststr);
+	// printf("Number: %d and another: %d\n and string: %s\n", 12345, 666, teststr);
 
-	ft_printf("Character: %c\n", ch);
-	printf("Character: %c\n", ch);
+	// ft_printf("Character: %c\n", ch);
+	// printf("Character: %c\n", ch);
 
-	a = ft_printf("Pointer address: %p\n", tests);
-	b = printf("Pointer address: %p\n", tests);
+	// a = ft_printf("Pointer address: %p\n", tests);
+	// b = printf("Pointer address: %p\n", tests);
 
-	ft_printf("With num 31,\n%o octal\n%x hex\n%X HEX\n", 31, 31, 31);
-	printf("With num 31,\n%o octal\n%x hex\n%X HEX\n", 31, 31, 31);
+	// ft_printf("With num 31,\n%o octal\n%x hex\n%X HEX\n", 31, 31, 31);
+	// printf("With num 31,\n%o octal\n%x hex\n%X HEX\n", 31, 31, 31);
 
 	// ft_printf("int %9.6d\n", 567);
 	// printf("int %9.6d\n", 567);
