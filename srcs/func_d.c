@@ -6,7 +6,7 @@
 /*   By: tmaarela <tmaarela@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/10 19:40:37 by tmaarela          #+#    #+#             */
-/*   Updated: 2019/12/19 18:04:17 by tmaarela         ###   ########.fr       */
+/*   Updated: 2020/01/02 18:07:18 by tmaarela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 char	*func_d(char *hold, int type, va_list ap)
 {
 	if (type == 1)
-		return (hold = ft_itoa((signed char)va_arg(ap++, signed char)));
+		return (hold = ft_itoa((char)va_arg(ap++, char)));
 	if (type == 2)
 		return (hold = ft_itoa((short)va_arg(ap++, short)));
 	if (type == 3)

@@ -6,7 +6,7 @@
 #    By: tmaarela <tmaarela@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/10/17 11:11:52 by taho              #+#    #+#              #
-#    Updated: 2019/12/20 17:57:23 by tmaarela         ###   ########.fr        #
+#    Updated: 2020/01/02 17:03:25 by tmaarela         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -24,7 +24,9 @@ SRCS =	srcs/ft_printf.c			\
 		srcs/store_flags.c			\
 		srcs/write_output.c			\
 		srcs/store_length_spec.c	\
-		testmain.c
+		testmain.c					\
+		srcs/fix_negative_sign.c	\
+		srcs/ft_numlenbase.c
 OBJE = $(subst .c,.o,$(SRCS))
 
 GREEN = \033[0;32m

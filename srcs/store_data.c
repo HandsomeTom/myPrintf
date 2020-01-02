@@ -6,7 +6,7 @@
 /*   By: tmaarela <tmaarela@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/20 16:26:35 by tmaarela          #+#    #+#             */
-/*   Updated: 2019/12/27 16:23:41 by tmaarela         ###   ########.fr       */
+/*   Updated: 2020/01/02 18:08:16 by tmaarela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,21 @@
 
 #include "../ft_printf.h"
 
+char		*store_string(va_list ap)
+{
+	char	*str;
+	va_list	apc;
+
+	va_copy(apc, ap);
+	if (va_arg(apc, size_t) == 0)
+	{
+		va_arg(ap++, size_t);
+		return (ft_strjoin("", "(null)"));
+	}
+	else
+		return (va_arg(ap++, char *));
+}
+
 char		*store_data(va_list ap, t_flags flags)
 {
 	char	*hold;
@@ -27,7 +42,7 @@ char		*store_data(va_list ap, t_flags flags)
 	if (flags.spec == 'd' || flags.spec == 'i')
 		return (func_d(hold, flags.length, ap));
 	else if (flags.spec == 's')
-		hold = ft_strdup(va_arg(ap++, char *));
+		hold = store_string(ap);
 	else if (flags.spec == 'c')
 		hold = func_char(ap, hold);
 	else if (flags.spec == 'p')

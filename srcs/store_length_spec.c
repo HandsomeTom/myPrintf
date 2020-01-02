@@ -6,7 +6,7 @@
 /*   By: tmaarela <tmaarela@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/20 16:07:54 by tmaarela          #+#    #+#             */
-/*   Updated: 2019/12/27 17:19:41 by tmaarela         ###   ########.fr       */
+/*   Updated: 2020/01/02 14:56:11 by tmaarela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,14 +61,15 @@ static long long	get_arg_value(va_list ap, t_flags flags)
 
 t_flags		flags_conflict_fix(t_flags flags)
 {
-	if (flags.integer == 1 && flags.zero == 1 && flags.presize > 0)
+	if (flags.integer == 1 && flags.zero == 1 && flags.presize >= 0)
 		flags.zero = 0;
 	if (flags.justification == 1 && flags.zero == 1)
 		flags.zero = 0;
-	if (flags.integer == 0 || (flags.integer == 1 && flags.sign == 1
-		&& flags.value < 0))
+	if (flags.integer == 0)
 		flags.sign = 0;
-	if (flags.integer == 1 && flags.value >= 0 && flags.sign == 1)
+	if (flags.integer == 1 && flags.sign == 1)
+		flags.space = 0;
+	if (flags.width > 0 || flags.sign == 1 || flags.value < 0)
 		flags.space = 0;
 	return (flags);
 }

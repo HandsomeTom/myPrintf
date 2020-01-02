@@ -6,7 +6,7 @@
 #    By: tmaarela <tmaarela@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/10/17 11:11:52 by taho              #+#    #+#              #
-#    Updated: 2019/12/27 17:39:15 by tmaarela         ###   ########.fr        #
+#    Updated: 2020/01/02 12:07:43 by tmaarela         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -70,7 +70,8 @@ SRCS =	ft_atoi.c 			\
 		ft_numlength.c		\
 		ft_pointer_to_string.c	\
 		ft_numlength_base.c	\
-		ft_ftoa.c
+		ft_ftoa.c			\
+		ft_strrplc.c
 OBJE = $(subst .c,.o,$(SRCS))
 
 GREEN = \033[0;32m

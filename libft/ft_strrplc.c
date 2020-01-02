@@ -1,28 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   func_char.c                                        :+:      :+:    :+:   */
+/*   ft_strrplc.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tmaarela <tmaarela@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/12/19 18:29:18 by tmaarela          #+#    #+#             */
-/*   Updated: 2020/01/02 18:31:16 by tmaarela         ###   ########.fr       */
+/*   Created: 2020/01/02 12:04:27 by tmaarela          #+#    #+#             */
+/*   Updated: 2020/01/02 12:07:17 by tmaarela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../ft_printf.h"
-#include <stdio.h>
+/*
+** Replace all characters in a string with another
+*/
 
-char	*func_char(va_list ap, char *hold)
+char	*ft_strrplc(char *str, char old, char new)
 {
-	va_list apc;
+	int i;
 
-	va_copy(apc, ap);
-	if (va_arg(apc, int) == 0)
+	i = 0;
+	while (str[i] != '\0')
 	{
-		va_arg(ap++, int);
-		return (ft_strjoin("", " "));
+		if (str[i] == old)
+			str[i] = new;
+		i++;
 	}
-	hold = ft_memset(hold, va_arg(ap++, int), 1);
-	return (hold);
+	return (str);
 }

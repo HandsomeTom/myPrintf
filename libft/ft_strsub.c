@@ -6,7 +6,7 @@
 /*   By: tmaarela <tmaarela@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/17 17:05:44 by tmaarela          #+#    #+#             */
-/*   Updated: 2019/10/25 16:15:47 by tmaarela         ###   ########.fr       */
+/*   Updated: 2020/01/02 16:42:35 by tmaarela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,5 +29,6 @@ char		*ft_strsub(char const *s, unsigned int start, size_t len)
 		ret[i] = s[start + i];
 		i++;
 	}
+	ret[i] = '\0';
 	return (ret);
 }

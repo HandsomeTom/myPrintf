@@ -6,7 +6,7 @@
 /*   By: tmaarela <tmaarela@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/15 14:48:16 by tmaarela          #+#    #+#             */
-/*   Updated: 2019/12/27 17:39:00 by tmaarela         ###   ########.fr       */
+/*   Updated: 2020/01/02 18:16:59 by tmaarela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,7 +65,7 @@ char				*ft_strsub(char const *s, unsigned int start, size_t len);
 char				*ft_strjoin(char const *s1, char const *s2);
 char				*ft_strtrim(char const *s);
 char				**ft_strsplit(char const *s, char c);
-char				*ft_itoa(int n);
+char				*ft_itoa(long long n);
 char				*ft_itoa_base(unsigned long long n, int base, int capital);
 void				ft_putchar(char c);
 void				ft_putstr(char const *s);
@@ -79,7 +79,8 @@ int					ft_putnbr_base(unsigned long long n, int base, int capital);
 int					ft_putpointer(unsigned long long *p);
 int					ft_numlength(long long num);
 unsigned long long	ft_numlength_base(long long num, int base);
-char				*ft_pointer_to_string(unsigned long long *p);
+char				*ft_pointer_to_string(void *pointer);
 char				*ft_ftoa(long double nb, int prec, int dot);
+char				*ft_strrplc(char *str, char old, char new);
 
 #endif

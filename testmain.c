@@ -6,7 +6,7 @@
 /*   By: tmaarela <tmaarela@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/29 14:46:02 by tmaarela          #+#    #+#             */
-/*   Updated: 2019/12/27 17:47:56 by tmaarela         ###   ########.fr       */
+/*   Updated: 2020/01/02 18:33:03 by tmaarela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,23 +24,57 @@ int		main(int argc, char **argv)
 	double	fn2 = -13746.1337;
 	int		num = 666;
 
-	ft_printf("My hex: %#08.x\n", 19);
-	printf("Og hex: %#08.x\n", 19);
+	ft_printf("%15.4s\n", "42 is the answer");
+	printf("%15.4s\n", "42 is the answer");
 
-	ft_printf("My hex: %08.5x\n", 19);
-	printf("Og hex: %08.5x\n", 19);
+	// ft_printf("Pointer1: %p\n", 0);
+	// printf("Pointer2: %p\n", 0);
 
-	ft_printf("My hex: %#.5x\n", 19);
-	printf("Og hex: %#.5x\n", 19);
+	// ft_printf("@moulitest: %.10d\n", -42);
+	// printf("@moulitest: %.10d\n", -42);
 
-	ft_printf("My hex: %#1x\n", 42);
-	printf("Og hex: %#1x\n", 42);
+	// ft_printf("%05.4d\n", -18);
+	// printf("%05.4d\n", -18);
 
-	ft_printf("My octal: %#.o\n", 0);
-	printf("Og octal: %#.o\n", 0);
+	// ft_printf("%3.2d\n", 0);
+	// printf("%3.2d\n", 0);
 
-	ft_printf("My %010.5d\n", 42);
-	printf("Nm %010.5d\n", 42);
+	// ft_printf("MyNum: %08.6d\n", -225);
+	// printf("MnNum: %08.6d\n", -225);
+
+	// ft_printf("MyNum: %d\n", -225);
+	// printf("MnNum: %d\n", -225);
+
+	// ft_putendl("");
+
+	// ft_printf("%+d\n", 42);
+	// printf("%+d\n", 42);
+
+	// ft_putendl("");
+
+	// ft_printf("% +d\n", 42);
+	// printf("% +d\n", 42);
+
+	// ft_printf("My hex: %0#8.x\n", 19);
+	// printf("Og hex: %0#8.x\n", 19);
+
+	// ft_printf("My hex: %08.5x\n", 19);
+	// printf("Og hex: %08.5x\n", 19);
+
+	// ft_printf("My hex: %#.5x\n", 19);
+	// printf("Og hex: %#.5x\n", 19);
+
+	// ft_printf("My hex: %#1x\n", 42);
+	// printf("Og hex: %#1x\n", 42);
+
+	// ft_printf("My octal: %#.o\n", 0);
+	// printf("Og octal: %#.o\n", 0);
+
+	// ft_printf("My %010.5d\n", 42);
+	// printf("Nm %010.5d\n", 42);
+
+	// ft_printf("%#8x\n", 42);
+	// printf("%#8x\n", 42);
 
 	// ft_printf("%c\n%c\n", 'T', 42);
 	// printf("%%\n");
