@@ -6,7 +6,7 @@
 /*   By: tmaarela <tmaarela@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/20 15:15:00 by tmaarela          #+#    #+#             */
-/*   Updated: 2019/12/27 17:51:21 by tmaarela         ###   ########.fr       */
+/*   Updated: 2020/01/06 18:41:47 by tmaarela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,7 @@ int					ft_printf(const char *restrict format, ...)
 	t_flags		flags;
 	int			i;
 	char		*hold;
+	char		*tmp;
 
 	va_start(ap, format);
 	i = 0;
@@ -40,10 +41,11 @@ int					ft_printf(const char *restrict format, ...)
 			flags.skip = 0;
 			flags = store_length_spec(flags, (char *)&(*format), ap);
 			format += flags.skip;
-			hold = store_data(ap, flags);
-			hold = write_output(hold, flags);
-			ft_putstr(hold);
-			i += ft_strlen(hold);
+			tmp = store_data(ap, flags);
+			hold = write_output(tmp, flags);
+			free(tmp);
+			(flags.emptychar == 0) ? ft_putstr(hold) : 0;
+			i += ft_strlen(hold) + flags.emptychar;
 			flags = (t_flags){0, 0, 0, 0, 0, 0, -1, 0, 0, 0, 0, 0, 0};
 		}
 		else

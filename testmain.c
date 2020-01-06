@@ -6,12 +6,13 @@
 /*   By: tmaarela <tmaarela@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/29 14:46:02 by tmaarela          #+#    #+#             */
-/*   Updated: 2020/01/02 18:33:03 by tmaarela         ###   ########.fr       */
+/*   Updated: 2020/01/06 18:31:37 by tmaarela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 #include <stdio.h>
+#include <limits.h>
 
 int		main(int argc, char **argv)
 {
@@ -21,11 +22,97 @@ int		main(int argc, char **argv)
 	int		a;
 	int		b;
 	double	fn = 0.00005;
-	double	fn2 = -13746.1337;
+	double	fn2 = 13746.1337;
 	int		num = 666;
 
-	ft_printf("%15.4s\n", "42 is the answer");
-	printf("%15.4s\n", "42 is the answer");
+	ft_printf("%");
+	printf("%");
+
+	ft_printf("%3c\n", 0);
+	printf("%3c\n", 0);
+
+	ft_printf("%.c\n", 'c');
+	printf("%.c\n", 'c');
+
+	// ft_printf("%#6o\n", 2500);
+	// printf("%#6o\n", 2500);
+
+	// ft_printf("%#.o, %#.0o\n", 0, 0);
+	// printf("%#.o, %#.0o\n", 0, 0);
+
+	// ft_printf("%#o\n", 0);
+	// printf("%#o\n", 0);
+
+	// ft_printf("%#o\n", 3);
+	// printf("%#o\n", 3);
+
+	// ft_printf("%#.3o\n", 1);
+	// printf("%#.3o\n", 1);
+
+	// ft_printf("%#.o\n", 41);
+	// printf("%#.o\n", 41);
+
+	// ft_printf("%#.7o\n", 41);
+	// printf("%#.7o\n", 41);
+
+	// ft_printf("%o\n", 0);
+	// printf("%o\n", 0);
+
+	// ft_printf("%.3o\n", 1);
+	// printf("%.3o\n", 1);
+
+	// ft_printf("%2.9p\n", 1234);
+	// printf("%2.9p\n", 1234);
+
+	// ft_printf("%.5p\n", 0);
+	// printf("%.5p\n", 0);
+
+	// ft_printf("%.5p\n", tests);
+	// printf("%.5p\n", tests);
+
+	// ft_printf("%.p, %.0p\n", 0, 0);
+	// printf("%.p, %.0p\n", 0, 0);
+
+	// ft_printf("%o\n", LONG_MAX);
+	// printf("%o\n", LONG_MAX);
+
+	// ft_printf("{%f}{%lf}{%Lf}\n", 1444565444646.6465424242242, 1444565444646.6465424242242, 1444565444646.6465424242242l);
+	// printf("{%f}{%lf}{%Lf}\n", 1444565444646.6465424242242, 1444565444646.6465424242242, 1444565444646.6465424242242l);
+// ft_printf("%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c \
+// %c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c\
+// %c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c\n",
+// ' ', '!', '"', '#', '$', '%', '&', '\'', '(', ')', '*', '+', ',', '-',
+// '.', '/', '0', '1', '2', '3', '4', '5', '6', '7', '8', '9', ':', ';',
+// '<', '=', '>', '?', '@', 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I',
+// 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W',
+// 'X', 'Y', 'Z', '[', '\\', ']', '^', '_', '`', 'a', 'b', 'c', 'd', 'e',
+// 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's',
+// 't', 'u', 'v', 'w', 'x', 'y', 'z', '{', '|', '}');
+
+
+// printf("%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c \
+// %c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c\
+// %c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c\n",
+// ' ', '!', '"', '#', '$', '%', '&', '\'', '(', ')', '*', '+', ',', '-',
+// '.', '/', '0', '1', '2', '3', '4', '5', '6', '7', '8', '9', ':', ';',
+// '<', '=', '>', '?', '@', 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I',
+// 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W',
+// 'X', 'Y', 'Z', '[', '\\', ']', '^', '_', '`', 'a', 'b', 'c', 'd', 'e',
+// 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's',
+// 't', 'u', 'v', 'w', 'x', 'y', 'z', '{', '|', '}');
+
+
+	// ft_printf("% d\n", -9999);
+	// printf("% d\n", -9999);
+
+	// ft_printf(".%%.%%.%%.%%.%%.%%.%%.%%.\n");
+	// printf(".%%.%%.%%.%%.%%.%%.%%.%%.\n");
+
+	// ft_printf("{% 03d}\n", 0);
+	// printf("{% 03d}\n", 0);
+
+	// ft_printf("%15.4s\n", "42 is the answer");
+	// printf("%15.4s\n", "42 is the answer");
 
 	// ft_printf("Pointer1: %p\n", 0);
 	// printf("Pointer2: %p\n", 0);
@@ -149,11 +236,11 @@ int		main(int argc, char **argv)
 	// ft_printf("Float1:   %#.f\n", fn2);
 	// printf("Float2:   %#.f\n", fn2);
 
-	// ft_printf("Float1:   %.16f\n", fn2);
-	// printf("Float2:   %.16f\n", fn2);
+	// ft_printf("Float1:   %.15f\n", fn2);
+	// printf("Float2:   %.15f\n", fn2);
 
-	// ft_printf("Float1:   %.f\n", fn2);
-	// printf("Float2:   %.f\n", fn2);
+	// ft_printf("Float1:   %.15f\n", 13746.1932);
+	// printf("Float2:   %.15f\n", 13746.1932);
 
 	// ft_printf("Float1:   %f\n", fn2);
 	// printf("Float2:   %f\n", fn2);

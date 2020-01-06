@@ -6,7 +6,7 @@
 /*   By: tmaarela <tmaarela@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/05 18:33:19 by tmaarela          #+#    #+#             */
-/*   Updated: 2020/01/02 18:16:41 by tmaarela         ###   ########.fr       */
+/*   Updated: 2020/01/06 18:16:00 by tmaarela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,7 @@ static int	ft_numlen(unsigned long long num, int base)
 char		*ft_pointer_to_string(void *pointer)
 {
 	char				*ps;
+	char				*tmp;
 	unsigned long long	p;
 
 	p = (unsigned long long)pointer;
@@ -39,7 +40,8 @@ char		*ft_pointer_to_string(void *pointer)
 	}
 	if (!(ps = (char *)malloc(ft_numlen(p, 16) + 2)))
 		return (NULL);
-	ps = ft_itoa_base((unsigned long long)p, 16, 0);
-	ps = ft_strjoin("0x", ps);
+	tmp = ft_itoa_base((unsigned long long)p, 16, 0);
+	ps = ft_strjoin("0x", tmp);
+	free(tmp);
 	return (ps);
 }

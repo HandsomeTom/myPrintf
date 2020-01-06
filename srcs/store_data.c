@@ -6,7 +6,7 @@
 /*   By: tmaarela <tmaarela@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/20 16:26:35 by tmaarela          #+#    #+#             */
-/*   Updated: 2020/01/02 18:08:16 by tmaarela         ###   ########.fr       */
+/*   Updated: 2020/01/06 18:36:49 by tmaarela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,6 @@
 
 char		*store_string(va_list ap)
 {
-	char	*str;
 	va_list	apc;
 
 	va_copy(apc, ap);
@@ -31,33 +30,30 @@ char		*store_string(va_list ap)
 		return (ft_strjoin("", "(null)"));
 	}
 	else
-		return (va_arg(ap++, char *));
+		return (ft_strjoin("",va_arg(ap++, char *)));
 }
 
 char		*store_data(va_list ap, t_flags flags)
 {
-	char	*hold;
-
-	hold = ft_strnew(0);
 	if (flags.spec == 'd' || flags.spec == 'i')
-		return (func_d(hold, flags.length, ap));
+		return (func_d(flags.length, ap));
 	else if (flags.spec == 's')
-		hold = store_string(ap);
+		return (store_string(ap));
 	else if (flags.spec == 'c')
-		hold = func_char(ap, hold);
+		return (func_char(ap));
 	else if (flags.spec == 'p')
-		hold = ft_pointer_to_string(va_arg(ap++, unsigned long long *));
+		return (ft_pointer_to_string(va_arg(ap++, unsigned long long *)));
 	else if (flags.spec == 'o')
-		return (func_o(hold, flags.length, ap));
+		return (func_o(flags.length, ap));
 	else if (flags.spec == 'x')
-		return (func_x(hold, flags.length, ap));
+		return (func_x(flags.length, ap));
 	else if (flags.spec == 'X')
-		return (func_capitalx(hold, flags.length, ap));
+		return (func_capitalx(flags.length, ap));
 	else if (flags.spec == 'u')
-		return (func_u(hold, flags.length, ap));
+		return (func_u(flags.length, ap));
 	else if (flags.spec == 'f')
-		return (func_f(hold, flags.length, ap, flags));
+		return (func_f(flags.length, ap, flags));
 	else if (flags.spec == '%')
-		hold = ft_memset(hold, '%', 1);
-	return (hold);
+		return(ft_strjoin("", "%"));
+	return (ft_strnew(0));
 }

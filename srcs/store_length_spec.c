@@ -6,7 +6,7 @@
 /*   By: tmaarela <tmaarela@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/20 16:07:54 by tmaarela          #+#    #+#             */
-/*   Updated: 2020/01/02 14:56:11 by tmaarela         ###   ########.fr       */
+/*   Updated: 2020/01/06 17:18:57 by tmaarela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ static int			check_if_int(int schar)
 {
 	if (schar == 'd' || schar == 'i' || schar == 'u'
 		|| schar == 'o' || schar == 'x' || schar == 'X'
-		|| schar == 'f')
+		|| schar == 'f' || schar == 'p')
 		return (1);
 	return (0);
 }
@@ -59,21 +59,6 @@ static long long	get_arg_value(va_list ap, t_flags flags)
 	return (ret);
 }
 
-t_flags		flags_conflict_fix(t_flags flags)
-{
-	if (flags.integer == 1 && flags.zero == 1 && flags.presize >= 0)
-		flags.zero = 0;
-	if (flags.justification == 1 && flags.zero == 1)
-		flags.zero = 0;
-	if (flags.integer == 0)
-		flags.sign = 0;
-	if (flags.integer == 1 && flags.sign == 1)
-		flags.space = 0;
-	if (flags.width > 0 || flags.sign == 1 || flags.value < 0)
-		flags.space = 0;
-	return (flags);
-}
-
 t_flags				store_length_spec(t_flags flags, char *str, va_list ap)
 {
 	if (*str == 'l' || *str == 'h' || *str == 'L')
@@ -89,7 +74,7 @@ t_flags				store_length_spec(t_flags flags, char *str, va_list ap)
 	if (flags.spec != 0)
 		flags.skip++;
 	flags.integer = check_if_int(flags.spec);
-	if (flags.integer == 1)
+	if (flags.integer == 1 || flags.spec == 'c')
 		flags.value = get_arg_value(ap, flags);
 	flags = flags_conflict_fix(flags);
 	return (flags);

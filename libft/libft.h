@@ -6,7 +6,7 @@
 /*   By: tmaarela <tmaarela@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/15 14:48:16 by tmaarela          #+#    #+#             */
-/*   Updated: 2020/01/02 18:16:59 by tmaarela         ###   ########.fr       */
+/*   Updated: 2020/01/06 17:14:45 by tmaarela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,12 +14,12 @@
 # define LIBFT_H
 # include <string.h>
 
-typedef	struct	s_list
+typedef	struct		s_list
 {
 	void			*content;
 	size_t			content_size;
 	struct s_list	*next;
-}				t_list;
+}					t_list;
 
 void				*ft_memset(void *str, int c, size_t n);
 void				ft_bzero(void *s, size_t n);
@@ -38,7 +38,7 @@ size_t				ft_strlcat(char *dest, const char *src, size_t size);
 char				*ft_strchr(const char *str, int c);
 char				*ft_strrchr(const char *str, int c);
 char				*ft_strstr(const char *str, const char *to_find);
-char				*ft_strnstr(const char *str, const char *to_find, size_t len);
+char				*ft_strnstr(const char *str, const char *find, size_t len);
 char				*ft_strstr(const char *str, const char *to_find);
 int					ft_strcmp(const char *s1, const char *s2);
 int					ft_strncmp(const char *str1, const char *str2, size_t n);

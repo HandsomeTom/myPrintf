@@ -6,7 +6,7 @@
 /*   By: tmaarela <tmaarela@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/20 15:15:08 by tmaarela          #+#    #+#             */
-/*   Updated: 2020/01/02 17:01:09 by tmaarela         ###   ########.fr       */
+/*   Updated: 2020/01/06 18:17:17 by tmaarela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,14 +48,15 @@ t_flags				store_length_spec(t_flags flags, char *str, va_list ap);
 char				*store_data(va_list ap, t_flags flags);
 char				*write_output(char *str, t_flags flags);
 
-char				*func_d(char *hold, int type, va_list ap);
-char				*func_o(char *hold, int type, va_list ap);
-char				*func_x(char *hold, int type, va_list ap);
-char				*func_capitalx(char *hold, int type, va_list ap);
-char				*func_char(va_list ap, char *hold);
-char				*func_u(char *hold, int type, va_list ap);
-char				*func_f(char *str, int type, va_list ap, t_flags flags);
+char				*func_d(int type, va_list ap);
+char				*func_o(int type, va_list ap);
+char				*func_x(int type, va_list ap);
+char				*func_capitalx(int type, va_list ap);
+char				*func_char(va_list ap);
+char				*func_u(int type, va_list ap);
+char				*func_f(int type, va_list ap, t_flags flags);
 char				*fix_negative_sign(char *str, t_flags flags);
 unsigned int		ft_numlenbase(int num, int base);
+t_flags				flags_conflict_fix(t_flags flags);
 
 #endif
