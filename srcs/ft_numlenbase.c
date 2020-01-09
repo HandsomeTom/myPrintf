@@ -6,13 +6,13 @@
 /*   By: tmaarela <tmaarela@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/02 16:59:54 by tmaarela          #+#    #+#             */
-/*   Updated: 2020/01/02 17:03:05 by tmaarela         ###   ########.fr       */
+/*   Updated: 2020/01/09 13:58:13 by tmaarela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../ft_printf.h"
 
-unsigned int	ft_numlenbase(int num, int base)
+unsigned int	ft_numlenbase(long long num, int base)
 {
 	int ret;
 

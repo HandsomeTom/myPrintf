@@ -6,7 +6,7 @@
 /*   By: tmaarela <tmaarela@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/20 15:15:08 by tmaarela          #+#    #+#             */
-/*   Updated: 2020/01/06 18:17:17 by tmaarela         ###   ########.fr       */
+/*   Updated: 2020/01/09 14:46:57 by tmaarela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,6 +40,7 @@ typedef struct		s_flags
 	int			integer;
 	long long	value;
 	int			emptychar;
+	int			neg;
 }					t_flags;
 
 int					ft_printf(const char *restrict format, ...);
@@ -56,7 +57,7 @@ char				*func_char(va_list ap);
 char				*func_u(int type, va_list ap);
 char				*func_f(int type, va_list ap, t_flags flags);
 char				*fix_negative_sign(char *str, t_flags flags);
-unsigned int		ft_numlenbase(int num, int base);
+unsigned int		ft_numlenbase(long long num, int base);
 t_flags				flags_conflict_fix(t_flags flags);
 
 #endif

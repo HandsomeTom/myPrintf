@@ -6,7 +6,7 @@
 /*   By: tmaarela <tmaarela@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/20 15:15:00 by tmaarela          #+#    #+#             */
-/*   Updated: 2020/01/06 18:41:47 by tmaarela         ###   ########.fr       */
+/*   Updated: 2020/01/09 14:47:03 by tmaarela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@ int					ft_printf(const char *restrict format, ...)
 			free(tmp);
 			(flags.emptychar == 0) ? ft_putstr(hold) : 0;
 			i += ft_strlen(hold) + flags.emptychar;
-			flags = (t_flags){0, 0, 0, 0, 0, 0, -1, 0, 0, 0, 0, 0, 0};
+			flags = (t_flags){0, 0, 0, 0, 0, 0, -1, 0, 0, 0, 0, 0, 0, 0};
 		}
 		else
 		{
@@ -55,5 +55,6 @@ int					ft_printf(const char *restrict format, ...)
 			format++;
 		}
 	}
+	va_end(ap);
 	return (i);
 }

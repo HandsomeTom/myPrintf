@@ -6,7 +6,7 @@
 /*   By: tmaarela <tmaarela@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/06 17:10:53 by tmaarela          #+#    #+#             */
-/*   Updated: 2020/01/06 17:11:11 by tmaarela         ###   ########.fr       */
+/*   Updated: 2020/01/09 18:57:48 by tmaarela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,8 +22,8 @@ t_flags		flags_conflict_fix(t_flags flags)
 		flags.sign = 0;
 	if (flags.integer == 1 && flags.sign == 1)
 		flags.space = 0;
-	if (flags.sign == 1 || (int)flags.value < 0)
-		flags.space = 0;
+	// if (flags.sign == 1 || (int)flags.value < 0 || (long)flags.value < 0)
+	// 	flags.space = 0;
 	if (flags.spec == 'c' && (int)flags.value == 0)
 		flags.emptychar = 1;
 	return (flags);

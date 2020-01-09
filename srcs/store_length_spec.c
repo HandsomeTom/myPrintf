@@ -6,7 +6,7 @@
 /*   By: tmaarela <tmaarela@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/20 16:07:54 by tmaarela          #+#    #+#             */
-/*   Updated: 2020/01/06 17:18:57 by tmaarela         ###   ########.fr       */
+/*   Updated: 2020/01/09 14:53:01 by tmaarela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,7 +54,7 @@ static long long	get_arg_value(va_list ap, t_flags flags)
 	if (ap)
 	{
 		va_copy(apc, ap);
-		ret = va_arg(apc, long long);
+		ret = (long long)va_arg(apc, void *);
 	}
 	return (ret);
 }

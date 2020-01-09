@@ -6,7 +6,7 @@
 #    By: tmaarela <tmaarela@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/10/17 11:11:52 by taho              #+#    #+#              #
-#    Updated: 2020/01/06 17:11:43 by tmaarela         ###   ########.fr        #
+#    Updated: 2020/01/09 19:29:24 by tmaarela         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -23,7 +23,7 @@ SRC_DIR =	srcs/
 LIB_DIR =	libft/
 
 CFILE =		ft_printf.c				\
-				store_data.c		\
+			store_data.c			\
 			store_flags.c			\
 			write_output.c			\
 			store_length_spec.c		\

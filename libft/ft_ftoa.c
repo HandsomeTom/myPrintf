@@ -6,13 +6,12 @@
 /*   By: tmaarela <tmaarela@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/06 13:34:26 by tomtom            #+#    #+#             */
-/*   Updated: 2020/01/06 17:13:35 by tmaarela         ###   ########.fr       */
+/*   Updated: 2020/01/09 19:40:00 by tmaarela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 #include <stdlib.h>
-#include <stdio.h>
 
 static long double			ft_change_prec(long double n, int prec)
 {
@@ -57,7 +56,7 @@ char						*ft_ftoa(long double num, int prec, int dot)
 
 	neg = (num < 0) ? 1 : 0;
 	n = (num < 0) ? -num : num;
-	z = ((long long)num == 0 && num != 0.0) ? 1 : 0;
+	z = ((long long)num == 0) ? 1 : 0;
 	(z == 1) ? n += 1 : 0;
 	prec = (prec == -1) ? 6 : prec;
 	n = ft_change_prec(n, prec) + 0.4;
