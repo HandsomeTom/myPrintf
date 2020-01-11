@@ -6,7 +6,7 @@
 /*   By: tmaarela <tmaarela@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/20 15:15:00 by tmaarela          #+#    #+#             */
-/*   Updated: 2020/01/09 14:47:03 by tmaarela         ###   ########.fr       */
+/*   Updated: 2020/01/11 16:13:41 by tmaarela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,12 +21,34 @@
 
 #include "../ft_printf.h"
 
-int					ft_printf(const char *restrict format, ...)
+int			start_formatting(char *format, t_flags flags, int *i, va_list ap)
+{
+	char	*hold;
+	char	*tmp;
+	int		form;
+
+	format++;
+	form = 1;
+	flags = store_flags((char *)&(*format));
+	form += flags.skip;
+	format += flags.skip;
+	flags.skip = 0;
+	flags = store_length_spec(flags, (char *)&(*format), ap);
+	form += flags.skip;
+	format += flags.skip;
+	tmp = store_data(ap, flags);
+	hold = write_output(tmp, flags);
+	free(tmp);
+	(flags.emptychar == 0) ? ft_putstr(hold) : 0;
+	*i += ft_strlen(hold) + flags.emptychar;
+	return (form);
+}
+
+int			ft_printf(const char *restrict format, ...)
 {
 	va_list		ap;
 	t_flags		flags;
 	int			i;
-	char		*hold;
 	char		*tmp;
 
 	va_start(ap, format);
@@ -34,20 +56,7 @@ int					ft_printf(const char *restrict format, ...)
 	while (*format)
 	{
 		if (*format == '%')
-		{
-			format++;
-			flags = store_flags((char *)&(*format));
-			format += flags.skip;
-			flags.skip = 0;
-			flags = store_length_spec(flags, (char *)&(*format), ap);
-			format += flags.skip;
-			tmp = store_data(ap, flags);
-			hold = write_output(tmp, flags);
-			free(tmp);
-			(flags.emptychar == 0) ? ft_putstr(hold) : 0;
-			i += ft_strlen(hold) + flags.emptychar;
-			flags = (t_flags){0, 0, 0, 0, 0, 0, -1, 0, 0, 0, 0, 0, 0, 0};
-		}
+			format += start_formatting((char *)format, flags, &i, ap);
 		else
 		{
 			write(1, &(*format), 1);

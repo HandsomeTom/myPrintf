@@ -6,7 +6,7 @@
 /*   By: tmaarela <tmaarela@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/20 15:26:56 by tmaarela          #+#    #+#             */
-/*   Updated: 2020/01/09 14:47:18 by tmaarela         ###   ########.fr       */
+/*   Updated: 2020/01/11 14:46:59 by tmaarela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 ** take following flags in this exact order:
 ** %[flags][width][.precision][length]specifier
 ** for simplicitys sake I'm refering to all these extra specifiers as flags.
-*/ 
+*/
 
 #include "../ft_printf.h"
 

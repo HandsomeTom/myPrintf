@@ -6,7 +6,7 @@
 /*   By: tmaarela <tmaarela@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/15 14:48:16 by tmaarela          #+#    #+#             */
-/*   Updated: 2020/01/06 17:14:45 by tmaarela         ###   ########.fr       */
+/*   Updated: 2020/01/11 16:25:37 by tmaarela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,5 +82,6 @@ unsigned long long	ft_numlength_base(long long num, int base);
 char				*ft_pointer_to_string(void *pointer);
 char				*ft_ftoa(long double nb, int prec, int dot);
 char				*ft_strrplc(char *str, char old, char new);
+long double			ft_round(long double num, int prec);
 
 #endif

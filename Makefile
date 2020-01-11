@@ -6,7 +6,7 @@
 #    By: tmaarela <tmaarela@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/10/17 11:11:52 by taho              #+#    #+#              #
-#    Updated: 2020/01/09 19:29:24 by tmaarela         ###   ########.fr        #
+#    Updated: 2020/01/11 14:31:35 by tmaarela         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -36,7 +36,9 @@ CFILE =		ft_printf.c				\
 			func_u.c				\
 			fix_negative_sign.c		\
 			ft_numlenbase.c			\
-			flags_conflict_fix.c
+			flags_conflict_fix.c	\
+			store_hash.c			\
+			empty_checks.c
 
 CFIND =		$(CFILE:%=$(SRC_DIR)%)
 

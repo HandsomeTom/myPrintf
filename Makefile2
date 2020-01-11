@@ -1,12 +1,12 @@
 # **************************************************************************** #
 #                                                                              #
 #                                                         :::      ::::::::    #
-#    Makefile2                                          :+:      :+:    :+:    #
+#    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
 #    By: tmaarela <tmaarela@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/10/17 11:11:52 by taho              #+#    #+#              #
-#    Updated: 2020/01/06 17:11:58 by tmaarela         ###   ########.fr        #
+#    Updated: 2020/01/11 15:50:15 by tmaarela         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -27,7 +27,9 @@ SRCS =	srcs/ft_printf.c			\
 		testmain.c					\
 		srcs/fix_negative_sign.c	\
 		srcs/ft_numlenbase.c		\
-		srcs/flags_conflict_fix.c
+		srcs/flags_conflict_fix.c	\
+		srcs/store_hash.c			\
+		srcs/empty_checks.c
 OBJE = $(subst .c,.o,$(SRCS))
 
 GREEN = \033[0;32m

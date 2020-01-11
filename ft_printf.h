@@ -6,7 +6,7 @@
 /*   By: tmaarela <tmaarela@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/20 15:15:08 by tmaarela          #+#    #+#             */
-/*   Updated: 2020/01/09 14:46:57 by tmaarela         ###   ########.fr       */
+/*   Updated: 2020/01/11 15:49:10 by tmaarela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,5 +59,9 @@ char				*func_f(int type, va_list ap, t_flags flags);
 char				*fix_negative_sign(char *str, t_flags flags);
 unsigned int		ft_numlenbase(long long num, int base);
 t_flags				flags_conflict_fix(t_flags flags);
+char				*store_hash(char *str, t_flags flags);
+char				*ft_empty_char(char *str, t_flags flags);
+int					if_str_empty(char *str);
+int					neg_check(char *str);
 
 #endif

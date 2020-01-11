@@ -6,7 +6,7 @@
 /*   By: tmaarela <tmaarela@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/29 14:46:02 by tmaarela          #+#    #+#             */
-/*   Updated: 2020/01/09 19:20:01 by tmaarela         ###   ########.fr       */
+/*   Updated: 2020/01/10 20:06:48 by tmaarela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,11 +26,68 @@ int		main(int argc, char **argv)
 	double	fn2 = 13746.1334;
 	int		num = 666;
 
-	ft_printf("%#.1f\n", 7.3);
-	printf("%#.1f\n", 7.3);
+	ft_printf("My double: %.f\n", 999.9999);
+	printf("Rl double: %.f\n", 999.9999);
 
-	ft_printf("%.1f\n", 27.3);
-	printf("%.1f\n", 27.3);
+	ft_printf("My double: %.18f\n", 1122343.30456);
+	printf("Rl double: %.18f\n", 1122343.30456);
+
+	ft_printf("My double: %.5f\n", -1122343.000030456);
+	printf("Rl double: %.5f\n", -1122343.000030456);
+
+	ft_printf("My double: %f\n", 123.000);
+	printf("Rl double: %f\n", 123.000);
+
+	ft_printf("My double: %f\n", -7.345);
+	printf("Rl double: %f\n", -7.345);
+
+	ft_printf("My double (0.0): %.f\n", 0.0);
+	printf("Rl double (0.0): %.f\n", 0.0);
+
+	ft_printf("My double (hash 0): %#.f\n", 123.000);
+	printf("Rl double (hash 0): %#.f\n", 123.000);
+
+	ft_printf("My double: %f\n", 0.0002);
+	printf("Rl double: %f\n", 0.0002);
+
+	ft_printf("My double (width, prec): %12.5f\n", 123.456);
+	printf("Rl double (width, prec): %12.5f\n", 123.456);
+
+	ft_printf("My double (17 prec): %.16f\n", 123.456);
+	printf("Rl double (17 prec): %.16f\n", 123.456);
+
+	ft_printf("My double (17 prec): %.16f\n", 123.455);
+	printf("Rl double (17 prec): %.16f\n", 123.455);
+
+	ft_printf("My double (17 prec): %.16f\n", 123.422);
+	printf("Rl double (17 prec): %.16f\n", 123.422);
+
+	ft_printf("My double (0.999): %.f\n", 1.999);
+	printf("Rl double (0.999): %.f\n", 1.999);
+
+	ft_printf("My double (0.strange): %.3f\n", 0.512342342);
+	printf("Rl double (0.strange): %.3f\n", 0.51234234234);
+
+	ft_printf("My double (0.999): %.2f\n", 0.999);
+	printf("Rl double (0.999): %.2f\n", 0.999);
+
+	ft_printf("My double (0.999): %.4f\n", 0.999);
+	printf("Rl double (0.999): %.4f\n", 0.999);
+
+	ft_printf("My double (0.999, prec 0): %.3f\n", 0.9999);
+	printf("Rl double (0.999, prec 0): %.3f\n", 0.9999);
+
+	ft_printf("My double: %.11Lf\n", 12345678912345678.12069);
+	printf("Rl double: %.11Lf\n", 12345678912345678.12069);
+
+	// ft_printf("%Z\n");
+	// printf("%Z\n");
+
+	// ft_printf("%7\n");
+	// printf("%7\n");
+
+	// ft_printf("%.1f\n", 27.3);
+	// printf("%.1f\n", 27.3);
 
 	// ft_printf("%-5c\n", '\0');
 	// printf("%-5c\n", '\0');

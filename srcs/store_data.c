@@ -6,7 +6,7 @@
 /*   By: tmaarela <tmaarela@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/20 16:26:35 by tmaarela          #+#    #+#             */
-/*   Updated: 2020/01/06 18:36:49 by tmaarela         ###   ########.fr       */
+/*   Updated: 2020/01/11 14:46:33 by tmaarela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ char		*store_string(va_list ap)
 		return (ft_strjoin("", "(null)"));
 	}
 	else
-		return (ft_strjoin("",va_arg(ap++, char *)));
+		return (ft_strjoin("", va_arg(ap++, char *)));
 }
 
 char		*store_data(va_list ap, t_flags flags)
@@ -54,6 +54,6 @@ char		*store_data(va_list ap, t_flags flags)
 	else if (flags.spec == 'f')
 		return (func_f(flags.length, ap, flags));
 	else if (flags.spec == '%')
-		return(ft_strjoin("", "%"));
+		return (ft_strjoin("", "%"));
 	return (ft_strnew(0));
 }
