@@ -6,7 +6,7 @@
 /*   By: tmaarela <tmaarela@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/20 15:15:08 by tmaarela          #+#    #+#             */
-/*   Updated: 2020/01/11 15:49:10 by tmaarela         ###   ########.fr       */
+/*   Updated: 2020/01/13 18:00:57 by tmaarela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,5 +63,7 @@ char				*store_hash(char *str, t_flags flags);
 char				*ft_empty_char(char *str, t_flags flags);
 int					if_str_empty(char *str);
 int					neg_check(char *str);
+char				*store_space(char *str);
+char				*ret_stuff(char *s1, char *s2, char *s3);
 
 #endif

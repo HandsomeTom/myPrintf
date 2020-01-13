@@ -6,7 +6,7 @@
 /*   By: tmaarela <tmaarela@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/20 15:26:56 by tmaarela          #+#    #+#             */
-/*   Updated: 2020/01/11 14:46:59 by tmaarela         ###   ########.fr       */
+/*   Updated: 2020/01/13 17:42:22 by tmaarela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,6 @@ t_flags		pf_flags(char *str)
 
 t_flags		store_flags(char *str)
 {
-	int		i;
 	t_flags	flags;
 
 	flags = pf_flags(str);

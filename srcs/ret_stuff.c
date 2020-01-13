@@ -1,32 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_pointer_to_string.c                             :+:      :+:    :+:   */
+/*   ret_stuff.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tmaarela <tmaarela@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/12/05 18:33:19 by tmaarela          #+#    #+#             */
-/*   Updated: 2020/01/13 17:17:06 by tmaarela         ###   ########.fr       */
+/*   Created: 2020/01/13 17:59:54 by tmaarela          #+#    #+#             */
+/*   Updated: 2020/01/13 18:06:51 by tmaarela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
-#include <stdlib.h>
+/*
+** Simple function to make code cleaner.
+** Free arguments 1 and 2 and return arg 3.
+*/
 
-char		*ft_pointer_to_string(void *pointer)
+#include "../ft_printf.h"
+
+char				*ret_stuff(char *s1, char *s2, char *s3)
 {
-	char				*ps;
-	char				*tmp;
-	unsigned long long	p;
-
-	p = (unsigned long long)pointer;
-	if (p == 0)
-	{
-		ps = ft_strjoin("", "0x0");
-		return (ps);
-	}
-	tmp = ft_itoa_base((unsigned long long)p, 16, 0);
-	ps = ft_strjoin("0x", tmp);
-	free(tmp);
-	return (ps);
+	free(s1);
+	free(s2);
+	return (s3);
 }

@@ -5,81 +5,82 @@
 #                                                     +:+ +:+         +:+      #
 #    By: tmaarela <tmaarela@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2019/10/17 11:11:52 by taho              #+#    #+#              #
-#    Updated: 2020/01/11 14:31:35 by tmaarela         ###   ########.fr        #
+#    Created: 2020/01/13 17:33:45 by tmaarela          #+#    #+#              #
+#    Updated: 2020/01/13 18:36:02 by tmaarela         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME =		libftprintf.a
-LIBFT_A =	libft.a
+C = gcc
 
-COMP =		gcc $(PRINTF_H) $(LIBFT_H) -c -o
+NAME = libftprintf.a
 
-PRINTF_H =	-I .
-LIBFT_H = 	-I libft/
+FLAGS = -Wall -Wextra -Werror
 
-OBJ_DIR =	obj/
-SRC_DIR =	srcs/
-LIB_DIR =	libft/
+LIBFT = libft
 
-CFILE =		ft_printf.c				\
+DIR_S = srcs
+
+DIR_O = objs
+
+HEADER = include
+
+SOURCES =	ft_printf.c				\
+			func_char.c				\
+			func_d.c				\
+			func_o.c				\
+			func_x.c				\
+			func_capitalx.c			\
+			func_f.c				\
+			func_u.c				\
 			store_data.c			\
 			store_flags.c			\
 			write_output.c			\
 			store_length_spec.c		\
-			func_d.c				\
-			func_o.c				\
-			func_x.c				\
-			func_capitalX.c			\
-			func_char.c				\
-			func_f.c				\
-			func_u.c				\
 			fix_negative_sign.c		\
 			ft_numlenbase.c			\
 			flags_conflict_fix.c	\
 			store_hash.c			\
-			empty_checks.c
+			empty_checks.c			\
+			store_space.c			\
+			ret_stuff.c
 
-CFIND =		$(CFILE:%=$(SRC_DIR)%)
+SRCS = $(addprefix $(DIR_S)/,$(SOURCES))
 
-OFILE =		$(CFILE:%.c=%.o)
+OBJS = $(addprefix $(DIR_O)/,$(SOURCES:.c=.o))
 
-OBJ =		$(addprefix $(OBJ_DIR), $(OFILE))
+GREEN = \033[0;32m
+RED = \033[0;31m
+END = \033[0m
 
-all: $(OBJ_DIR) $(NAME)
+all: $(NAME)
 
-$(OBJ_DIR):
-		@mkdir -p $(OBJ_DIR)
-		@echo Create: ft_printf Object directory
+$(NAME): $(OBJS)
+	@make -C $(LIBFT)
+	@cp libft/libft.a ./$(NAME)
+	@ar rc $(NAME) $(OBJS)
+	@ranlib $(NAME)
+	@echo "$(NAME): $(GREEN)ft_printf was created$(END)"
 
-$(NAME): $(OBJ)
-		@echo LIBFT START
-		@make -C $(LIB_DIR)
-		@echo Copying $(LIBFT_A) to root.
-		@cp $(LIB_DIR)$(LIBFT_A) .
-		@mv $(LIBFT_A) $(NAME)
-		@ar rc $(NAME) $(addprefix $(OBJ_DIR), $(OFILE))
-		@ranlib $(NAME)
-		@echo Merged: $(NAME) with $(LIBFT_A)
-		@echo FT_PRINTF COMPLETE
+$(DIR_O)/%.o: $(DIR_S)/%.c
+	@mkdir -p objs
+	@$(CC) $(FLAGS) -I $(HEADER) -o $@ -c $<
 
-$(OBJ): $(CFIND)
-		@$(MAKE) $(OFILE)
-
-$(OFILE):
-		@echo Create: $(@:obj/%=%)
-		@$(COMP) $(OBJ_DIR)$@ $(SRC_DIR)$(@:%.o=%.c)
+norme:
+	norminette ./libft/
+	@echo
+	norminette ./$(HEADER)/
+	@echo
+	norminette ./$(DIR_S)/
 
 clean:
-		@/bin/rm -rf $(OBJ_DIR)
-		@make -C $(LIB_DIR) clean
-		@echo Cleaned ft_printf object files
+	@rm -f $(OBJS)
+	@rm -rf $(DIR_O)
+	@make clean -C $(LIBFT)
+	@echo "$(NAME): $(RED)All object files were deleted.$(END)"
 
 fclean: clean
-		@/bin/rm -f $(NAME)
-		@make -C $(LIB_DIR) fclean
-		@echo Cleaned $(NAME)
+	@rm -f $(NAME)
+	@make fclean -C $(LIBFT)
+	@echo "$(NAME): $(RED)$(NAME) was deleted$(END)"
 
 re: fclean all
-
-.PHONY: all clean flcean re

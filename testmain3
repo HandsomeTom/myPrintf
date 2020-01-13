@@ -1,32 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_pointer_to_string.c                             :+:      :+:    :+:   */
+/*   testmain2.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tmaarela <tmaarela@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/12/05 18:33:19 by tmaarela          #+#    #+#             */
-/*   Updated: 2020/01/13 17:17:06 by tmaarela         ###   ########.fr       */
+/*   Created: 2019/12/20 16:14:43 by tmaarela          #+#    #+#             */
+/*   Updated: 2019/12/20 16:58:03 by tmaarela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
-#include <stdlib.h>
+#include <stdio.h>
 
-char		*ft_pointer_to_string(void *pointer)
+int main()
 {
-	char				*ps;
-	char				*tmp;
-	unsigned long long	p;
-
-	p = (unsigned long long)pointer;
-	if (p == 0)
-	{
-		ps = ft_strjoin("", "0x0");
-		return (ps);
-	}
-	tmp = ft_itoa_base((unsigned long long)p, 16, 0);
-	ps = ft_strjoin("0x", tmp);
-	free(tmp);
-	return (ps);
+	printf("Error? %#014x\n", 42);
 }

@@ -6,7 +6,7 @@
 /*   By: tmaarela <tmaarela@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/20 16:07:54 by tmaarela          #+#    #+#             */
-/*   Updated: 2020/01/09 14:53:01 by tmaarela         ###   ########.fr       */
+/*   Updated: 2020/01/13 17:43:33 by tmaarela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,7 @@ static int			check_if_int(int schar)
 	return (0);
 }
 
-static long long	get_arg_value(va_list ap, t_flags flags)
+static long long	get_arg_value(va_list ap)
 {
 	va_list		apc;
 	long long	ret;
@@ -75,7 +75,7 @@ t_flags				store_length_spec(t_flags flags, char *str, va_list ap)
 		flags.skip++;
 	flags.integer = check_if_int(flags.spec);
 	if (flags.integer == 1 || flags.spec == 'c')
-		flags.value = get_arg_value(ap, flags);
+		flags.value = get_arg_value(ap);
 	flags = flags_conflict_fix(flags);
 	return (flags);
 }

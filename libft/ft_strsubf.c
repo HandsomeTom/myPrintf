@@ -1,32 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_pointer_to_string.c                             :+:      :+:    :+:   */
+/*   ft_strsubf.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tmaarela <tmaarela@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/12/05 18:33:19 by tmaarela          #+#    #+#             */
-/*   Updated: 2020/01/13 17:17:06 by tmaarela         ###   ########.fr       */
+/*   Created: 2020/01/13 15:53:41 by tmaarela          #+#    #+#             */
+/*   Updated: 2020/01/13 15:59:41 by tmaarela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 #include <stdlib.h>
 
-char		*ft_pointer_to_string(void *pointer)
+char		*ft_strsubf(char *s, unsigned int start, size_t len)
 {
-	char				*ps;
-	char				*tmp;
-	unsigned long long	p;
+	char	*ret;
+	int		rlen;
+	int		i;
 
-	p = (unsigned long long)pointer;
-	if (p == 0)
+	i = 0;
+	if (s == NULL)
+		return (NULL);
+	rlen = len + 1;
+	if (!(ret = ft_memalloc(rlen)))
+		return (NULL);
+	while (len-- > 0)
 	{
-		ps = ft_strjoin("", "0x0");
-		return (ps);
+		ret[i] = s[start + i];
+		i++;
 	}
-	tmp = ft_itoa_base((unsigned long long)p, 16, 0);
-	ps = ft_strjoin("0x", tmp);
-	free(tmp);
-	return (ps);
+	ret[i] = '\0';
+	free(s);
+	return (ret);
 }

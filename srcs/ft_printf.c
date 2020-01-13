@@ -6,7 +6,7 @@
 /*   By: tmaarela <tmaarela@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/20 15:15:00 by tmaarela          #+#    #+#             */
-/*   Updated: 2020/01/13 16:55:11 by tmaarela         ###   ########.fr       */
+/*   Updated: 2020/01/13 17:55:45 by tmaarela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,11 +21,12 @@
 
 #include "../ft_printf.h"
 
-int			start_formatting(char *format, t_flags flags, int *i, va_list ap)
+int			start_formatting(char *format, int *i, va_list ap)
 {
 	char	*hold;
 	char	*tmp;
 	int		form;
+	t_flags	flags;
 
 	format++;
 	form = 1;
@@ -47,16 +48,14 @@ int			start_formatting(char *format, t_flags flags, int *i, va_list ap)
 int			ft_printf(const char *restrict format, ...)
 {
 	va_list		ap;
-	t_flags		flags;
 	int			i;
-	char		*tmp;
 
 	va_start(ap, format);
 	i = 0;
 	while (*format)
 	{
 		if (*format == '%')
-			format += start_formatting((char *)format, flags, &i, ap);
+			format += start_formatting((char *)format, &i, ap);
 		else
 		{
 			write(1, &(*format), 1);

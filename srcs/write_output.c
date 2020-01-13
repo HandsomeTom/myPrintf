@@ -6,7 +6,7 @@
 /*   By: tmaarela <tmaarela@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/20 16:40:05 by tmaarela          #+#    #+#             */
-/*   Updated: 2020/01/13 17:07:49 by tmaarela         ###   ########.fr       */
+/*   Updated: 2020/01/13 17:43:04 by tmaarela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -106,7 +106,7 @@ static char				*store_pre_str(char *str, t_flags flags)
 			return (ft_strsub(str, 0, 2));
 		else
 		{
-			if (flags.presize > ft_strlen(str) - 2)
+			if (flags.presize > (int)ft_strlen(str) - 2)
 			{
 				str = ft_strsub(str, 2, ft_strlen(str) - 2);
 				if (!(ap = (char *)malloc(flags.presize - ft_strlen(str) + 2)))
@@ -133,7 +133,7 @@ char					*write_output(char *str, t_flags flags)
 		flags.spec, flags.value);
 	else if ((flags.spec == 's' || flags.spec == 'p') && flags.presize >= 0)
 		str = store_pre_str(str, flags);
-	if (flags.width > ft_strlen(str))
+	if (flags.width > (int)ft_strlen(str))
 		str = store_width(str, flags.width - ft_strlen(str) - flags.space,
 		flags, c);
 	if ((flags.spec == 'o' || flags.spec == 'x' || flags.spec == 'X')
