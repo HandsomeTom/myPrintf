@@ -6,7 +6,7 @@
 /*   By: tmaarela <tmaarela@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/20 16:40:05 by tmaarela          #+#    #+#             */
-/*   Updated: 2020/01/11 16:29:51 by tmaarela         ###   ########.fr       */
+/*   Updated: 2020/01/13 17:07:49 by tmaarela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,34 +23,34 @@
 static char				*store_width(char *str, int len, t_flags flags, int ch)
 {
 	char	*ret;
+	char	*s;
 
 	if (!(ret = (char *)malloc(len + 1)))
 		return (NULL);
 	ft_memset(ret, ch, len);
 	ret[len] = '\0';
 	if (flags.justification == 0)
-		str = ft_strjoin(ret, str);
+		s = ft_strjoin(ret, str);
 	else
-		str = ft_strjoin(str, ret);
+		s = ft_strjoin(str, ret);
 	free(ret);
-	return (str);
+	free(str);
+	return (s);
 }
 
 static char				*store_pre_int(char *str, int len, int type, int value)
 {
 	char	*ret;
+	char	*s;
 	int		i;
 
 	i = 0;
 	if (value == 0 && ((type != 'd' && type != 'i') || len <= 0))
-		str = ft_strjoin("", "");
+		str[0] = '\0';
 	(value == 0 && ((type != 'd' && type != 'i') || len <= 0)) ? len++ : 0;
 	while (str[i] == ' ' || str[i] == '-')
-	{
-		if (str[i] == '-')
+		if (str[i++] == '-')
 			len++;
-		i++;
-	}
 	if (len <= 0)
 		return (str);
 	if (!(ret = (char *)malloc(len + 1)))
@@ -59,34 +59,39 @@ static char				*store_pre_int(char *str, int len, int type, int value)
 		|| type == 'x' || type == 'X')
 		ft_memset(ret, '0', len);
 	ret[len] = '\0';
-	str = ft_strjoin(ret, str);
+	s = ft_strjoin(ret, str);
 	free(ret);
-	return (str);
+	free(str);
+	return (s);
 }
 
 static char				*store_sign(char *str, t_flags flags)
 {
-	int len;
-	int empty;
+	int		len;
+	int		empty;
+	char	*ret;
 
 	empty = if_str_empty(str);
 	len = ft_numlenbase(flags.value, 10);
 	if (flags.width > len && flags.justification == 1)
-		return (ft_strjoin("+", ft_strsub(str, 0, ft_strlen(str) - 1)));
+		ret = ft_strjoin("+", ft_strsub(str, 0, ft_strlen(str) - 1));
 	else if (flags.width > len && flags.zero == 0)
 	{
 		if (flags.presize > len)
 			str[flags.width - len - (flags.presize - len) - 1] = '+';
 		else
 			str[flags.width - len - empty] = '+';
-		return (str);
+		ret = ft_strdup(str);
 	}
 	else if (flags.width > len && flags.zero == 1)
 	{
 		str[0] = '+';
-		return (str);
+		ret = ft_strdup(str);
 	}
-	return (ft_strjoin("+", str));
+	else
+		ret = ft_strjoin("+", str);
+	free(str);
+	return (ret);
 }
 
 static char				*store_pre_str(char *str, t_flags flags)
@@ -138,7 +143,7 @@ char					*write_output(char *str, t_flags flags)
 		&& flags.sign == 1 && (int)flags.value >= 0)
 		str = store_sign(str, flags);
 	if (flags.space == 1 && flags.integer == 1 && flags.spec != 'u')
-		str = ft_strjoin(" ", str);
+		str = store_space(str);
 	if (flags.integer == 1)
 		str = fix_negative_sign(str, flags);
 	if (flags.emptychar == 1)

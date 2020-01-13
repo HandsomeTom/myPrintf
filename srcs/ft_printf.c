@@ -6,7 +6,7 @@
 /*   By: tmaarela <tmaarela@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/20 15:15:00 by tmaarela          #+#    #+#             */
-/*   Updated: 2020/01/11 16:13:41 by tmaarela         ###   ########.fr       */
+/*   Updated: 2020/01/13 16:55:11 by tmaarela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,9 +38,9 @@ int			start_formatting(char *format, t_flags flags, int *i, va_list ap)
 	format += flags.skip;
 	tmp = store_data(ap, flags);
 	hold = write_output(tmp, flags);
-	free(tmp);
 	(flags.emptychar == 0) ? ft_putstr(hold) : 0;
 	*i += ft_strlen(hold) + flags.emptychar;
+	free(hold);
 	return (form);
 }
 

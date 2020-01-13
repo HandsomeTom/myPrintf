@@ -6,7 +6,7 @@
 /*   By: tmaarela <tmaarela@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/02 15:05:04 by tmaarela          #+#    #+#             */
-/*   Updated: 2020/01/09 13:57:18 by tmaarela         ###   ########.fr       */
+/*   Updated: 2020/01/13 13:15:22 by tmaarela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ char			*fix_negative_sign(char *str, t_flags flags)
 	i = 0;
 	while (str[i] == ' ')
 		i++;
-	if (flags.presize > ft_numlenbase((int)flags.value, 10) && sign == 1)
+	if (flags.presize > ft_numlenbase(flags.value, 10) && sign == 1)
 		str = ft_strjoin(ft_strjoin(ft_strsub(str, 0, i), "-"),
 		ft_strsub(str, i + 1, j - i));
 	else if (sign == 1)
